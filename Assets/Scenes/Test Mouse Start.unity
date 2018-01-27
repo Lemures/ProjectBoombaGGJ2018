@@ -579,7 +579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c50b39f5efbe92246b821d42a66fe9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ratSpeed: 0
+  ratSpeed: 0.1
   ratRandomness: 0
 --- !u!54 &1022941123
 Rigidbody:
