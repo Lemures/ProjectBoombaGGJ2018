@@ -5,12 +5,12 @@ using UnityEngine;
 public class RatRandomMovement : MonoBehaviour {
 
     private GameObject rat;
-    private Rigidbody rb = rat.GetComponent<Rigidbody>();
+    private Rigidbody rb;
     
 
 	// Use this for initialization
 	void Start () {
-		
+		rat.GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
