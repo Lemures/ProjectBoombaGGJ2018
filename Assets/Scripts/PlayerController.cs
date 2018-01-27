@@ -23,21 +23,19 @@ public class PlayerController : MonoBehaviour {
 	
 	protected void Update () 
 	{
-//		Vector3 inputMovement = new Vector3 ();
 		_xInput.x = Input.GetAxisRaw ("Horizontal") * MovementSpeed;
 		_zInput.z = Input.GetAxisRaw ("Vertical") * MovementSpeed;
-		// _input.y, = 0.0f;
 	}
 
 	protected void FixedUpdate() 
 	{
-
-		if(_rigidBody.velocity.x < MaxSpeed)
+		// Left and down are negative velocities, so absolute value
+		if(Mathf.Abs(_rigidBody.velocity.x) < MaxSpeed)
 			_rigidBody.AddForce(_xInput, ForceMode.Acceleration);
 
-		if(_rigidBody.velocity.z < MaxSpeed)
+		if(Mathf.Abs(_rigidBody.velocity.z) < MaxSpeed)
 			_rigidBody.AddForce(_zInput, ForceMode.Acceleration);
 
-		Debug.Log("velocity: " + _rigidBody.velocity);
+		//Debug.Log("velocity: " + _rigidBody.velocity);
 	}
 }
