@@ -36,9 +36,6 @@ public class PlayerController : MonoBehaviour {
         _zInput.z = Input.GetAxisRaw(_verticalInputName) * MovementSpeed;
         //_xInput.x = Input.GetAxis(_horizontalInputName) * MovementSpeed;
         //_zInput.z = Input.GetAxis(_verticalInputName) * MovementSpeed;
-        Debug.Log(_xInput);
-        Debug.Log(_zInput);
-
 
         // lookat normalized direction of input
         Vector3 input = new Vector3(_xInput.x, 0, _zInput.z);
