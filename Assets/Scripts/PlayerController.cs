@@ -11,24 +11,37 @@ public class PlayerController : MonoBehaviour {
 	public float MovementSpeed;
 	public float MaxSpeed;
 
-	protected void Awake() 
+    public int PlayerId = 1;
+    private string _horizontalInputName;
+    private string _verticalInputName;
+
+    protected void Awake() 
 	{
 		_rigidBody = GetComponent<Rigidbody> ();
-	}
 
-	protected void Start () 
+        _horizontalInputName = "HorizontalJ" + PlayerId.ToString();
+        _verticalInputName = "VerticalJ" + PlayerId.ToString();
+        //_horizontalInputName = "Horizontal";
+        //_verticalInputName = "Vertical";
+    }
+
+    protected void Start () 
 	{
 		
 	}
 	
 	protected void Update () 
 	{
-		_xInput.x = Input.GetAxisRaw ("Horizontal") * MovementSpeed;
-		_zInput.z = Input.GetAxisRaw ("Vertical") * MovementSpeed;
+        _xInput.x = Input.GetAxisRaw(_horizontalInputName) * MovementSpeed;
+        _zInput.z = Input.GetAxisRaw(_verticalInputName) * MovementSpeed;
+        //_xInput.x = Input.GetAxis(_horizontalInputName) * MovementSpeed;
+        //_zInput.z = Input.GetAxis(_verticalInputName) * MovementSpeed;
+        Debug.Log(_xInput);
+        Debug.Log(_zInput);
 
 
-		// lookat normalized direction of input
-		Vector3 input = new Vector3(_xInput.x, 0, _zInput.z);
+        // lookat normalized direction of input
+        Vector3 input = new Vector3(_xInput.x, 0, _zInput.z);
 
 		if(!input.Equals(Vector3.zero))
 			transform.LookAt(transform.position + input.normalized, Vector3.up);
