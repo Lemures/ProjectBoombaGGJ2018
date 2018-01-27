@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
 	private Vector3 _xInput;
 	private Vector3 _zInput;
 	private Rigidbody _rigidBody;
+	private float _launchForce;
 
 	public float MovementSpeed;
 	public float MaxSpeed;
@@ -25,6 +26,10 @@ public class PlayerController : MonoBehaviour {
 	{
 		_xInput.x = Input.GetAxisRaw ("Horizontal") * MovementSpeed;
 		_zInput.z = Input.GetAxisRaw ("Vertical") * MovementSpeed;
+
+		if(Input.GetButtonDown("Jump")){
+			Debug.Log("JUMP");
+		}
 
 
 		// lookat normalized direction of input
