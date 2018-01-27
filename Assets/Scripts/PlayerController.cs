@@ -25,6 +25,13 @@ public class PlayerController : MonoBehaviour {
 	{
 		_xInput.x = Input.GetAxisRaw ("Horizontal") * MovementSpeed;
 		_zInput.z = Input.GetAxisRaw ("Vertical") * MovementSpeed;
+
+
+		// lookat normalized direction of input
+		Vector3 input = new Vector3(_xInput.x, 0, _zInput.z);
+
+		if(!input.Equals(Vector3.zero))
+			transform.LookAt(transform.position + input.normalized, Vector3.up);
 	}
 
 	protected void FixedUpdate() 
@@ -36,6 +43,5 @@ public class PlayerController : MonoBehaviour {
 		if(Mathf.Abs(_rigidBody.velocity.z) < MaxSpeed)
 			_rigidBody.AddForce(_zInput, ForceMode.Acceleration);
 
-		//Debug.Log("velocity: " + _rigidBody.velocity);
 	}
 }
