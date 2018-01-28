@@ -8,16 +8,18 @@ public class PlayerController : MonoBehaviour {
 	private Vector3 _zInput;
 	private Rigidbody _rigidBody;
 	private float _launchForce = 10.0f;
-	private float _maxLaunchForce = 15.0f;
+	private float _maxLaunchForce = 25.0f;
 	private float _launchCooldown = 2.0f;
 	private float _launchCooldownTimer = 0.0f;
 	private bool _isLaunchOnCooldown;
 	private bool _isLaunching;
 	private bool _isChargingLaunch;
+	private PlayerHealth _healthScript;
 
 
 	public float MovementSpeed;
 	public float MaxSpeed;
+    public float WeaponRange = 50f;
 
     public int PlayerId;
     private string _horizontalInputName;
@@ -27,7 +29,7 @@ public class PlayerController : MonoBehaviour {
     protected void Awake() 
 	{
 		_rigidBody = GetComponent<Rigidbody> ();
-
+		_healthScript = GetComponent<PlayerHealth> ();
         _horizontalInputName = "HorizontalJ" + PlayerId.ToString();
         _verticalInputName = "VerticalJ" + PlayerId.ToString();
         _dashInputName = "Dash" + PlayerId.ToString();
@@ -67,9 +69,10 @@ public class PlayerController : MonoBehaviour {
 		{
 			if(Input.GetButton(_dashInputName))
 			{
+				Debug.Log("DASHING");
 				_isChargingLaunch = true;
 				if(_launchForce < _maxLaunchForce)
-					_launchForce += 3.0f * Time.deltaTime;
+					_launchForce += 6.0f * Time.deltaTime;
 			}
 
 			if(Input.GetButtonUp(_dashInputName))
@@ -99,12 +102,36 @@ public class PlayerController : MonoBehaviour {
 		if(_isLaunching) 
 		{
 			_isChargingLaunch = false;
-			_rigidBody.velocity = Vector3.zero;
-			_rigidBody.AddForce(transform.forward * _launchForce * 100, ForceMode.Impulse);
+
+			if(_healthScript.catPowerEnabled) 
+				CatAttack();
+			else 
+ 				DashAttack();
+
 			_launchForce = 10.0f;
 			_isLaunching = false;
 			_isLaunchOnCooldown = true;
 			_launchCooldownTimer = 0.0f;
 		}
+	}
+
+	private void CatAttack() 
+	{
+        RaycastHit hit;
+        Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
+        Debug.DrawRay(transform.position, forward, Color.green);
+        if (Physics.SphereCast(transform.position, 1, transform.TransformDirection(Vector3.forward), out hit, WeaponRange)) 
+        {
+            if (hit.rigidbody != null) 
+            {
+                hit.rigidbody.AddForce(-hit.normal * _launchForce * 6000);
+            }
+        }
+	}
+
+	private void DashAttack() 
+	{
+		_rigidBody.velocity = Vector3.zero;
+		_rigidBody.AddForce(transform.forward * _launchForce * 100, ForceMode.Impulse);
 	}
 }
