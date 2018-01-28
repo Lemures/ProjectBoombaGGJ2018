@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour {
     public float playerDamage = 10;
     public float damageRate = 60;
     float number;
+    Vector3 enemyVelocity;
 
     void Start () {
 	}
@@ -33,21 +34,30 @@ public class PlayerHealth : MonoBehaviour {
             health = health-(enemyVelocity.magnitude * playerDamage);
         }
         */
-        var enemyVelocity = Vector3.zero;
-        if (collision.collider.gameObject.layer == 0){
+        
+        /*if (collision.collider.gameObject.layer == 0){
             enemyVelocity = collision.collider.gameObject.GetComponentInParent<Rigidbody>().velocity;
         }
+        */
         foreach (ContactPoint contact in collision.contacts) {
             if(contact.thisCollider.gameObject.layer == 0 && (contact.otherCollider.gameObject.layer == 9 || contact.otherCollider.gameObject.layer == 0)) {
                 number++;
                 if (number >= damageRate){
-                    health = health-(enemyVelocity.magnitude * playerDamage);
+                    health = health-playerDamage;
                     number = 0;
                 }
             }
         }
     }
 
-  
-    
+    void OnCollisionEnter(Collision collision) {
+        if (collision.collider.gameObject.layer == 8) {
+        health = 0;
+        gameObject.SetActive(false);
+
+        }
+    }
+
+
+
 }

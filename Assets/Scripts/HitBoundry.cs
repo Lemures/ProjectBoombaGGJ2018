@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HitBoundry : MonoBehaviour {
 
-    public LayerMask mask = 8;
+
 
 	// Use this for initialization
 	void Start () {
@@ -16,12 +16,7 @@ public class HitBoundry : MonoBehaviour {
 		
 	}
 
-    void OnCollisionEnter(Collision collision) {
-        if (collision.collider.gameObject.layer == 8) {
-        gameObject.SetActive(false);
-            
-        }
-    }
+    
 
 
 
