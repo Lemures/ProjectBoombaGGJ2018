@@ -19,9 +19,10 @@ public class PlayerController : MonoBehaviour {
 	public float MovementSpeed;
 	public float MaxSpeed;
 
-    public int PlayerId = 1;
+    public int PlayerId;
     private string _horizontalInputName;
     private string _verticalInputName;
+    private string _dashInputName;
 
     protected void Awake() 
 	{
@@ -29,6 +30,8 @@ public class PlayerController : MonoBehaviour {
 
         _horizontalInputName = "HorizontalJ" + PlayerId.ToString();
         _verticalInputName = "VerticalJ" + PlayerId.ToString();
+        _dashInputName = "Dash" + PlayerId.ToString();
+        Debug.Log("DAHS INPUT NAME : " + _dashInputName);
         //_horizontalInputName = "Horizontal";
         //_verticalInputName = "Vertical";
     }
@@ -62,27 +65,25 @@ public class PlayerController : MonoBehaviour {
 		} 
 		else 
 		{
-			if(Input.GetButton("Fire1"))
+			if(Input.GetButton(_dashInputName))
 			{
 				_isChargingLaunch = true;
-				_rigidBody.drag = 0.5f;
 				if(_launchForce < _maxLaunchForce)
 					_launchForce += 3.0f * Time.deltaTime;
 			}
 
-			if(Input.GetButtonUp("Fire1"))
+			if(Input.GetButtonUp(_dashInputName))
 			{
 				_isLaunching = true;
 			}
 		}
-
 	}
 
 	protected void FixedUpdate() 
 	{
 
-		if(!_isChargingLaunch)
-		{
+		// if(!_isChargingLaunch)
+		// {
 			// Left and down are negative velocities, so absolute value
 			if(Mathf.Abs(_rigidBody.velocity.x) < MaxSpeed)
 				_rigidBody.AddForce(_xInput * MovementSpeed);
@@ -91,16 +92,15 @@ public class PlayerController : MonoBehaviour {
 				_rigidBody.AddForce(_zInput * MovementSpeed);
 
 //			Debug.Log("Input: " + _rigidBody.velocity);
-		}
+		// }
 
 		//Debug.Log("Vel: " + _rigidBody.velocity);
 
 		if(_isLaunching) 
 		{
 			_isChargingLaunch = false;
-			_rigidBody.drag = 1.0f;
 			_rigidBody.velocity = Vector3.zero;
-			_rigidBody.AddForce(transform.forward * _launchForce, ForceMode.Impulse);
+			_rigidBody.AddForce(transform.forward * _launchForce * 100, ForceMode.Impulse);
 			_launchForce = 10.0f;
 			_isLaunching = false;
 			_isLaunchOnCooldown = true;
