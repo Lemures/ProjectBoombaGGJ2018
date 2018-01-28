@@ -60,11 +60,10 @@ public class PlayerHealth : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision) {
         if (collision.collider.gameObject.layer == 8) {
-        health = 0;
-        gameObject.SetActive(false);
-        CameraMovement.CameraShake();
-        
-    }
+            health = 0;
+            gameObject.SetActive(false);
+            CameraMovement.CameraShake();
+        }
     }
 
 
