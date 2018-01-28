@@ -1,17 +1,15 @@
 fileFormatVersion: 2
-guid: 9c9bf30a893df4a49a01f8c7d39126ad
+guid: cf14cbe8a97937d4a93f1eec0683e85e
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: No Name
+    2100000: lambert1
+    2100002: EyeCenter
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Roombot
-    2186277476908879412: ImportLogs
-    2186277476908879414: ImportLogs
-    2186277476908879416: ImportLogs
+    4300000: polySurface13
   externalObjects: {}
   materials:
     importMaterials: 1
