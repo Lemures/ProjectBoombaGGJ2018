@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour {
 
         if (catPowerEnabled) {
             cat.SetActive(true);
-            catScore += 1 * Time.deltaTime;
+            catScore += 10 * Time.deltaTime;
         } else {
             cat.SetActive(false);
         }
