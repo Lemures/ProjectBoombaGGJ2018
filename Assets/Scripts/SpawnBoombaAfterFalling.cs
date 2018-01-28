@@ -23,15 +23,14 @@ public class SpawnBoombaAfterFalling : MonoBehaviour {
                 var rb = player.GetComponent<Rigidbody>();
                 rb.velocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;
-                StartCoroutine("Spawn");
+                StartCoroutine("Spawn", player);
             }
         }
 	}
 
 
-    IEnumerator Spawn() {
+    IEnumerator Spawn(GameObject player) {
     yield return new WaitForSeconds(spawnTime);
-        foreach (GameObject player in players) {
             if (player.activeSelf == false) {
                 player.SetActive(true);
                 player.transform.eulerAngles = new Vector3(0,0,0);
@@ -43,7 +42,6 @@ public class SpawnBoombaAfterFalling : MonoBehaviour {
                 newPos.y = 1;
                 player.transform.position = newPos;
                 lastPos = newPos;
-    }
         }
     }
 }

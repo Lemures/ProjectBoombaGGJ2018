@@ -5,12 +5,11 @@ using UnityEngine;
 public class HealthEventManager : MonoBehaviour {
 
     public GameObject[] players;
-    private GameObject lastCat;
 
     void Update() {
         foreach (GameObject player in players) {
             var playerHealth = player.GetComponent<PlayerHealth>();
-            if(playerHealth.health == 100) {
+            if(playerHealth.health >= 100) {
                 if (playerHealth.catPowerEnabled == false){
                     Reset();
                     playerHealth.catPowerEnabled = true;

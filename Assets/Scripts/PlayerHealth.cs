@@ -16,11 +16,10 @@ public class PlayerHealth : MonoBehaviour {
     public GameObject cat;
     public float catScore;
 
-    private void FixedUpdate() {
-        health += healthIncreaseRate;
-    }
-
+   
     private void Update() {
+        health += healthIncreaseRate*Time.deltaTime;
+
         if (health >= 100) {
             health = 100;
         }
