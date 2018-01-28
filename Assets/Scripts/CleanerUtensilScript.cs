@@ -13,6 +13,6 @@ public class CleanerUtensilScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Rotate(Vector3.up * Time.deltaTime * SpinMultiplier);
+		transform.Rotate(Vector3.up * Time.deltaTime * SpinMultiplier*2);
 	}
 }
