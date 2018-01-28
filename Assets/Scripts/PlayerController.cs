@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour {
 
 		if(!input.Equals(Vector3.zero)){
 			//transform.LookAt(transform.position + input.normalized, Vector3.up);
-			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(input), Time.deltaTime * 1.3f);
+			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(input), Time.deltaTime * 2.0f);
 		}
 
 		if(_isLaunchOnCooldown)
@@ -89,6 +89,8 @@ public class PlayerController : MonoBehaviour {
 
 			if(Mathf.Abs(_rigidBody.velocity.z) < MaxSpeed)
 				_rigidBody.AddForce(_zInput * MovementSpeed);
+
+			Debug.Log("Input: " + _rigidBody.velocity);
 		}
 
 		//Debug.Log("Vel: " + _rigidBody.velocity);
