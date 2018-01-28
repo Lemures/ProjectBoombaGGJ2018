@@ -11,8 +11,7 @@ public class PlayerHealth : MonoBehaviour {
     public float damageRate = 60;
     float number;
 
-    void Start () {
-	}
+    public Renderer BoombaRenderer;
 
     private void FixedUpdate() {
         health += healthIncreaseRate;
@@ -25,6 +24,8 @@ public class PlayerHealth : MonoBehaviour {
         if (health <= 0) {
             health = 0;
         }
+
+        BoombaRenderer.materials[0].SetFloat("Float_639B7DA", health/100);
     }
 
     private void OnCollisionStay(Collision collision) {
