@@ -13,6 +13,7 @@ public class HealthEventManager : MonoBehaviour {
                 if (playerHealth.catPowerEnabled == false){
                     Reset();
                     playerHealth.catPowerEnabled = true;
+                    AudioController.Instance.PlayCatTransferSounds();
                 }
             }
         }

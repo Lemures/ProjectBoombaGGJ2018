@@ -33,7 +33,6 @@ public class PlayerController : MonoBehaviour {
         _horizontalInputName = "HorizontalJ" + PlayerId.ToString();
         _verticalInputName = "VerticalJ" + PlayerId.ToString();
         _dashInputName = "Dash" + PlayerId.ToString();
-        Debug.Log("DAHS INPUT NAME : " + _dashInputName);
         //_horizontalInputName = "Horizontal";
         //_verticalInputName = "Vertical";
     }
@@ -69,7 +68,6 @@ public class PlayerController : MonoBehaviour {
 		{
 			if(Input.GetButton(_dashInputName))
 			{
-				Debug.Log("DASHING");
 				_isChargingLaunch = true;
 				if(_launchForce < _maxLaunchForce)
 					_launchForce += 6.0f * Time.deltaTime;

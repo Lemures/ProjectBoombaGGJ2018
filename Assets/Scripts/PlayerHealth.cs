@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour {
 
-    public float health;
+    public float health = 0;
     public float healthIncreaseRate = .1f;
     public LayerMask canDamage;
     public float playerDamage = 10;
@@ -14,12 +14,13 @@ public class PlayerHealth : MonoBehaviour {
     public Renderer BoombaRenderer;
     public bool catPowerEnabled = false;
     public GameObject cat;
-    public float catScore;
+    public float catScore = 0;
+    public GameObject explosionPart;
 
    
     private void Update() {
         health += healthIncreaseRate*Time.deltaTime;
-
+        
         if (health >= 100) {
             health = 100;
         }
@@ -31,6 +32,7 @@ public class PlayerHealth : MonoBehaviour {
 
         if (catPowerEnabled) {
             cat.SetActive(true);
+            catScore += 1 * Time.deltaTime;
         } else {
             cat.SetActive(false);
         }
@@ -57,13 +59,18 @@ public class PlayerHealth : MonoBehaviour {
             }
         }
     }
-
+    
     void OnCollisionEnter(Collision collision) {
+        if (collision.collider.gameObject.layer == 0) {
+            AudioController.Instance.PlayRoombaHitSounds();
+        }
         if (collision.collider.gameObject.layer == 8) {
             health = 0;
+            AudioController.Instance.PlayRoombaExplosionSounds();
             gameObject.SetActive(false);
             CameraMovement.CameraShake();
-        }
+        
+    }
     }
 
 
