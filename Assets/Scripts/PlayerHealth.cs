@@ -12,6 +12,9 @@ public class PlayerHealth : MonoBehaviour {
     float number;
     Vector3 enemyVelocity;
     public Renderer BoombaRenderer;
+    public bool catPowerEnabled = false;
+    public GameObject cat;
+    public float catScore;
 
     private void FixedUpdate() {
         health += healthIncreaseRate;
@@ -26,6 +29,12 @@ public class PlayerHealth : MonoBehaviour {
         }
 
         BoombaRenderer.materials[0].SetFloat("Float_639B7DA", health/100);
+
+        if (catPowerEnabled) {
+            cat.SetActive(true);
+        } else {
+            cat.SetActive(false);
+        }
     }
 
     private void OnCollisionStay(Collision collision) {

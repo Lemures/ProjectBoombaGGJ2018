@@ -5,10 +5,17 @@ using UnityEngine;
 public class HealthEventManager : MonoBehaviour {
 
     public GameObject[] players;
+    private GameObject lastCat;
 
     void Update() {
-        if (Input.GetKey(KeyCode.F)) {
-            Reset();
+        foreach (GameObject player in players) {
+            var playerHealth = player.GetComponent<PlayerHealth>();
+            if(playerHealth.health == 100) {
+                if (playerHealth.catPowerEnabled == false){
+                    Reset();
+                    playerHealth.catPowerEnabled = true;
+                }
+            }
         }
     }
 
@@ -16,7 +23,7 @@ public class HealthEventManager : MonoBehaviour {
         foreach (GameObject player in players) {
             var playerHealth = player.GetComponent<PlayerHealth>();
             playerHealth.health = 0;
-            Debug.Log(playerHealth.health);
+            playerHealth.catPowerEnabled = false;
         }
     }
 }
