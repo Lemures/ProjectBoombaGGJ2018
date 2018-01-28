@@ -10,6 +10,7 @@ public class CameraMovement : MonoBehaviour {
     void Start()
     {
         mainCamera = Camera.main.gameObject;
+        iTween.MoveTo(mainCamera, new Vector3(0, 5.72f, -6.1f), 3);
 
     }
     public static void CameraShake() {

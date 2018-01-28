@@ -2,8 +2,6 @@ Shader "PBR Master"
 {
 	Properties
 	{
-				Float_7E56653D("Seed", Float) = 1
-				Color_F55EE251("Color", Color) = (0.6451919,1,0.531,0)
 	}
 	SubShader
 	{
@@ -44,23 +42,7 @@ Shader "PBR Master"
 			
 			
 			#include "LightweightLighting.cginc"
-								void Unity_Sine_float(float In, out float Out)
-							{
-							    Out = sin(In);
-							}
-							void Unity_Multiply_float(float A, float B, out float Out)
-							{
-							    Out = A * B;
-							}
-							void Unity_Remap_float(float In, float2 InMinMax, float2 OutMinMax, out float Out)
-							{
-							    Out = OutMinMax.x + (In - InMinMax.x) * (OutMinMax.y - OutMinMax.x) / (InMinMax.y - InMinMax.x);
-							}
-							void Unity_Multiply_float(float4 A, float4 B, out float4 Out)
-							{
-							    Out = A * B;
-							}
-							struct GraphVertexInput
+								struct GraphVertexInput
 							{
 								float4 vertex : POSITION;
 								float3 normal : NORMAL;
@@ -79,40 +61,25 @@ Shader "PBR Master"
 								float Occlusion;
 								float Alpha;
 							};
-							float Float_7E56653D;
-							float4 Color_F55EE251;
-							float4 _Remap_392641D4_InMinMax;
-							float4 _Remap_392641D4_OutMinMax;
-							float4 _PBRMaster_96383EFE_Albedo;
-							float4 _PBRMaster_96383EFE_Normal;
-							float _PBRMaster_96383EFE_Metallic;
-							float _PBRMaster_96383EFE_Smoothness;
-							float _PBRMaster_96383EFE_Occlusion;
-							float _PBRMaster_96383EFE_Alpha;
+							float4 _PBRMaster_8360BBFE_Albedo;
+							float4 _PBRMaster_8360BBFE_Normal;
+							float4 _PBRMaster_8360BBFE_Emission;
+							float _PBRMaster_8360BBFE_Metallic;
+							float _PBRMaster_8360BBFE_Smoothness;
+							float _PBRMaster_8360BBFE_Occlusion;
+							float _PBRMaster_8360BBFE_Alpha;
 							GraphVertexInput PopulateVertexData(GraphVertexInput v){
 								return v;
 							}
 							SurfaceDescription PopulateSurfaceData(SurfaceInputs IN) {
 								SurfaceDescription surface = (SurfaceDescription)0;
-								float _Property_DC180A9C_Out = Float_7E56653D;
-								float _Sine_90C1BD81_Out;
-								Unity_Sine_float(_Property_DC180A9C_Out, _Sine_90C1BD81_Out);
-								float _Multiply_43137AB_Out;
-								Unity_Multiply_float(_Time.y, _Sine_90C1BD81_Out, _Multiply_43137AB_Out);
-								float _Sine_EFF6A6FE_Out;
-								Unity_Sine_float(_Multiply_43137AB_Out, _Sine_EFF6A6FE_Out);
-								float _Remap_392641D4_Out;
-								Unity_Remap_float(_Sine_EFF6A6FE_Out, _Remap_392641D4_InMinMax, _Remap_392641D4_OutMinMax, _Remap_392641D4_Out);
-								float4 _Property_98614D15_Out = Color_F55EE251;
-								float4 _Multiply_7A79087_Out;
-								Unity_Multiply_float((_Remap_392641D4_Out.xxxx), _Property_98614D15_Out, _Multiply_7A79087_Out);
-								surface.Albedo = _PBRMaster_96383EFE_Albedo;
-								surface.Normal = _PBRMaster_96383EFE_Normal;
-								surface.Emission = _Multiply_7A79087_Out;
-								surface.Metallic = _PBRMaster_96383EFE_Metallic;
-								surface.Smoothness = _PBRMaster_96383EFE_Smoothness;
-								surface.Occlusion = _PBRMaster_96383EFE_Occlusion;
-								surface.Alpha = _PBRMaster_96383EFE_Alpha;
+								surface.Albedo = _PBRMaster_8360BBFE_Albedo;
+								surface.Normal = _PBRMaster_8360BBFE_Normal;
+								surface.Emission = _PBRMaster_8360BBFE_Emission;
+								surface.Metallic = _PBRMaster_8360BBFE_Metallic;
+								surface.Smoothness = _PBRMaster_8360BBFE_Smoothness;
+								surface.Occlusion = _PBRMaster_8360BBFE_Occlusion;
+								surface.Alpha = _PBRMaster_8360BBFE_Alpha;
 								return surface;
 							}
 			
