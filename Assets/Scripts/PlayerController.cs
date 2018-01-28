@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour {
 			if(Mathf.Abs(_rigidBody.velocity.z) < MaxSpeed)
 				_rigidBody.AddForce(_zInput * MovementSpeed);
 
-			Debug.Log("Input: " + _rigidBody.velocity);
+//			Debug.Log("Input: " + _rigidBody.velocity);
 		}
 
 		//Debug.Log("Vel: " + _rigidBody.velocity);
