@@ -201,11 +201,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4c95b34ec51b8824681e2c5aa04291a4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2631,8 +2631,25 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8eccb14af7e11be43afcf52f2a68f718, type: 3}
   - {fileID: 8300000, guid: 65a9290ec31dcfa478bc923f55c4f64e, type: 3}
   - {fileID: 8300000, guid: 47615d09988322c4e9178221b8c5e85a, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 16a608972bb660e47a314bc486a46396, type: 3}
+  - {fileID: 8300000, guid: af618471155fec640900b6f0b03be4b2, type: 3}
+  - {fileID: 8300000, guid: 30ae174636d55a54694a740531e84659, type: 3}
+  - {fileID: 8300000, guid: 9742dd9297775c2468c84f6dfbe9a47f, type: 3}
+  - {fileID: 8300000, guid: e69d0567fdb82c548ab53c840ed95f9c, type: 3}
+  - {fileID: 8300000, guid: 550d9d9a1e61fd0449e040e1ed8ca7f2, type: 3}
+  - {fileID: 8300000, guid: 7f460300bd42e594ea1071b79117af7d, type: 3}
+  - {fileID: 8300000, guid: 94b9811c1708cfb498426391d118cfe6, type: 3}
+  - {fileID: 8300000, guid: fcc4de7fc5bb6214e8ed7ff2dd5bcd20, type: 3}
+  - {fileID: 8300000, guid: 2caf3c02cb78d244bb89568e94a4bb7f, type: 3}
+  - {fileID: 8300000, guid: f389cc193c521f046a1d08dc7185afff, type: 3}
+  - {fileID: 8300000, guid: dc05168d654616149a7b64aed7ae8aaf, type: 3}
+  - {fileID: 8300000, guid: 95e1f4d15df5fad4a8b407e7989d1f16, type: 3}
+  - {fileID: 8300000, guid: d317190ad8b0a22428a2f6c855ae770b, type: 3}
+  - {fileID: 8300000, guid: f82ec345805374445b1b0d64c2873a79, type: 3}
+  - {fileID: 8300000, guid: a8fded81e107f944ebe60ead178cb03c, type: 3}
+  - {fileID: 8300000, guid: f8c863aab83a7ba4b85f7078e2938500, type: 3}
+  - {fileID: 8300000, guid: 77c217bdbbf06bb41a9df1ddaa11e4e4, type: 3}
+  - {fileID: 8300000, guid: e86f91abe3b051c47ae874b8ed98aa1c, type: 3}
 --- !u!4 &977166287
 Transform:
   m_ObjectHideFlags: 0

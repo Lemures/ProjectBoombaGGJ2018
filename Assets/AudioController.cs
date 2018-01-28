@@ -16,9 +16,10 @@ public class AudioController : MonoBehaviour {
                 _instance = this;
             }
         }
-
+    
         private void Start() {
             thisAudio = GetComponent<AudioSource>();
+            InvokeRepeating("PlayRandomCatSound", 5, 10);
         }
 
         public void PlayRoombaHitSounds() {
@@ -27,5 +28,13 @@ public class AudioController : MonoBehaviour {
 
         public void PlayRoombaExplosionSounds() {
                 thisAudio.PlayOneShot(audioSources[Random.Range(12, 17)]);
+        }
+
+        public void PlayCatTransferSounds() {
+                thisAudio.PlayOneShot(audioSources[Random.Range(18, 20)]);
+        }
+
+        public void PlayRandomCatSound() {
+                thisAudio.PlayOneShot(audioSources[Random.Range(21, 36)]);
         }
 }
