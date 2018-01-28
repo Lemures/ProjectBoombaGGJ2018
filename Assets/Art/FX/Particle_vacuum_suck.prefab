@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198509419096429548}
   - component: {fileID: 199851759546419302}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Particle_vacuum_suck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ ParticleSystem:
   lengthInSec: 0.08
   simulationSpeed: 1.48
   stopAction: 0
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
