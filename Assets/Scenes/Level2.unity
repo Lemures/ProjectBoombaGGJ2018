@@ -355,6 +355,11 @@ Prefab:
       propertyPath: BoombaRenderer
       value: 
       objectReference: {fileID: 1595879377}
+    - target: {fileID: 114321750505610528, guid: e97a94b2d6ffc47729e92e4f50ee981a,
+        type: 2}
+      propertyPath: PlayerId
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e97a94b2d6ffc47729e92e4f50ee981a, type: 2}
   m_IsPrefabParent: 0
@@ -974,6 +979,11 @@ Prefab:
       propertyPath: BoombaRenderer
       value: 
       objectReference: {fileID: 912854444}
+    - target: {fileID: 114321750505610528, guid: e97a94b2d6ffc47729e92e4f50ee981a,
+        type: 2}
+      propertyPath: PlayerId
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e97a94b2d6ffc47729e92e4f50ee981a, type: 2}
   m_IsPrefabParent: 0
@@ -3249,6 +3259,11 @@ Prefab:
       propertyPath: BoombaRenderer
       value: 
       objectReference: {fileID: 1075725301}
+    - target: {fileID: 114321750505610528, guid: e97a94b2d6ffc47729e92e4f50ee981a,
+        type: 2}
+      propertyPath: PlayerId
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e97a94b2d6ffc47729e92e4f50ee981a, type: 2}
   m_IsPrefabParent: 0
