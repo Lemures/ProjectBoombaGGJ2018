@@ -8,7 +8,7 @@ public class SpawnBoombaAfterFalling : MonoBehaviour {
     public GameObject[] players;
     private GameObject currentSpawn;
     private Vector3 lastPos = new Vector3(50, 50, 50);
-    private Vector3 thirdPos = new Vector3(50, 50, 50);
+    public float spawnSize = 10;
 
 
 	// Use this for initialization
@@ -35,14 +35,13 @@ public class SpawnBoombaAfterFalling : MonoBehaviour {
             if (player.activeSelf == false) {
                 player.SetActive(true);
                 player.transform.eulerAngles = new Vector3(0,0,0);
-                Vector3 newPos = Random.insideUnitCircle * 15;
-                while (Vector3.Distance(newPos, lastPos) <= 20 || Vector3.Distance(newPos, thirdPos) <= 20) {
-                    newPos = Random.insideUnitCircle * 15;
+                Vector3 newPos = Random.insideUnitCircle * spawnSize;
+                while (Vector3.Distance(newPos, lastPos) <= .1) {
+                    newPos = Random.insideUnitCircle * spawnSize;
                 }
                 newPos.z = newPos.y + transform.position.z;
-                newPos.y = 5;
+                newPos.y = 1;
                 player.transform.position = newPos;
-                thirdPos = lastPos;
                 lastPos = newPos;
     }
         }
