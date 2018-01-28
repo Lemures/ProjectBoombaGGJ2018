@@ -6,12 +6,21 @@ using UnityEngine.UI;
 public class HealthEventManager : MonoBehaviour {
 
     public GameObject[] players;
+    public GameObject GameSceneHolder;
+    public GameObject EndScreen;
     public Text[] playerScore;
     public float GameTime = 100.0f;
     private bool _isGameOver;
 
+    // hacked bad code
+    public GameObject PlayerOneEnd;
+    public GameObject PlayerTwoEnd;
+    public GameObject PlayerThreeEnd;
+    public GameObject PlayerFourEnd;
+
     protected void Awake() {
         GameTime = 100.0f;
+        EndScreen.SetActive(false);
     }
 
     protected void Update() {
@@ -50,6 +59,34 @@ public class HealthEventManager : MonoBehaviour {
     public void EndGame() 
     {
         Debug.Log("GAME OVER!");
+
+        EndScreen.SetActive(true);
+
+        int topPlayer = 0;
+        for(int i = 0; i < players.Length; i++) 
+        {
+            if(players[i].GetComponent<PlayerHealth>().catScore > players[topPlayer].GetComponent<PlayerHealth>().catScore) 
+            {
+                topPlayer = i;
+            }            
+        }
+
+        switch(topPlayer) {
+            case 0:
+                PlayerOneEnd.SetActive(true);
+                break;
+            case 1:
+                PlayerTwoEnd.SetActive(true);
+                break;
+            case 2:
+                PlayerThreeEnd.SetActive(true);
+                break;  
+            case 3:
+                PlayerFourEnd.SetActive(true);
+                break;
+        }
+
+        GameSceneHolder.SetActive(false);
     }
 
 
