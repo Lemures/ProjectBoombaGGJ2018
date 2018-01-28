@@ -2,35 +2,22 @@ Shader "hidden/preview"
 {
 	Properties
 	{
-				Float_639B7DA("Energy Level", Float) = 0.5
-				Color_13786F36("Color Empty", Color) = (0.764151,0.2754091,0.2487095,0)
-				Color_3E588C("Color Full", Color) = (0.4309678,0.6792453,0.3926038,0)
+				Float_7E56653D("Seed", Float) = 1
+				Color_F55EE251("Color", Color) = (0.6451919,1,0.531,0)
 	}
 	CGINCLUDE
 	#include "UnityCG.cginc"
-			void Unity_Lerp_float(float4 A, float4 B, float4 T, out float4 Out)
+			void Unity_Sine_float(float In, out float Out)
 			{
-			    Out = lerp(A, B, T);
+			    Out = sin(In);
 			}
 			void Unity_Multiply_float(float A, float B, out float Out)
 			{
 			    Out = A * B;
 			}
-			void Unity_Sine_float(float In, out float Out)
-			{
-			    Out = sin(In);
-			}
 			void Unity_Remap_float(float In, float2 InMinMax, float2 OutMinMax, out float Out)
 			{
 			    Out = OutMinMax.x + (In - InMinMax.x) * (OutMinMax.y - OutMinMax.x) / (InMinMax.y - InMinMax.x);
-			}
-			void Unity_Add_float(float A, float B, out float Out)
-			{
-			    Out = A + B;
-			}
-			void Unity_Clamp_float(float In, float Min, float Max, out float Out)
-			{
-			    Out = clamp(In, Min, Max);
 			}
 			void Unity_Multiply_float(float4 A, float4 B, out float4 Out)
 			{
@@ -48,48 +35,40 @@ Shader "hidden/preview"
 			struct SurfaceDescription{
 				float4 PreviewOutput;
 			};
-			float Float_9031DB85;
-			float Float_639B7DA;
-			float4 Color_13786F36;
-			float4 Color_3E588C;
-			float _Multiply_F055DB4E_B;
-			float4 _Remap_AB38022_InMinMax;
-			float4 _Remap_AB38022_OutMinMax;
-			float _Add_F4B23BCA_B;
-			float _Clamp_DBED94F0_Min;
-			float _Clamp_DBED94F0_Max;
+			float Float_800A9918;
+			float Float_7E56653D;
+			float4 Color_F55EE251;
+			float4 Color_BA4E583C;
+			float4 _Remap_392641D4_InMinMax;
+			float4 _Remap_392641D4_OutMinMax;
+			float _Remap_47B2AFA4_In;
+			float4 _Remap_47B2AFA4_InMinMax;
+			float4 _Remap_47B2AFA4_OutMinMax;
 			GraphVertexInput PopulateVertexData(GraphVertexInput v){
 				return v;
 			}
 			SurfaceDescription PopulateSurfaceData(SurfaceInputs IN) {
 				SurfaceDescription surface = (SurfaceDescription)0;
-				float4 _Property_8741CC03_Out = Color_13786F36;
-				float4 _Property_478E4D8D_Out = Color_3E588C;
-				float _Property_9F4F0D47_Out = Float_639B7DA;
-				float4 _Lerp_F60D4D8C_Out;
-				Unity_Lerp_float(_Property_8741CC03_Out, _Property_478E4D8D_Out, (_Property_9F4F0D47_Out.xxxx), _Lerp_F60D4D8C_Out);
-				if (Float_9031DB85 == 0) { surface.PreviewOutput = half4(_Lerp_F60D4D8C_Out.x, _Lerp_F60D4D8C_Out.y, _Lerp_F60D4D8C_Out.z, 1.0); return surface; }
-				float _Multiply_F055DB4E_Out;
-				Unity_Multiply_float(_Property_9F4F0D47_Out, _Multiply_F055DB4E_B, _Multiply_F055DB4E_Out);
-				if (Float_9031DB85 == 1) { surface.PreviewOutput = half4(_Multiply_F055DB4E_Out, _Multiply_F055DB4E_Out, _Multiply_F055DB4E_Out, 1.0); return surface; }
-				float _Multiply_2A2BA189_Out;
-				Unity_Multiply_float(_Time.y, _Multiply_F055DB4E_Out, _Multiply_2A2BA189_Out);
-				if (Float_9031DB85 == 2) { surface.PreviewOutput = half4(_Multiply_2A2BA189_Out, _Multiply_2A2BA189_Out, _Multiply_2A2BA189_Out, 1.0); return surface; }
-				float _Sine_5EE8126F_Out;
-				Unity_Sine_float(_Multiply_2A2BA189_Out, _Sine_5EE8126F_Out);
-				if (Float_9031DB85 == 3) { surface.PreviewOutput = half4(_Sine_5EE8126F_Out, _Sine_5EE8126F_Out, _Sine_5EE8126F_Out, 1.0); return surface; }
-				float _Remap_AB38022_Out;
-				Unity_Remap_float(_Sine_5EE8126F_Out, _Remap_AB38022_InMinMax, _Remap_AB38022_OutMinMax, _Remap_AB38022_Out);
-				if (Float_9031DB85 == 4) { surface.PreviewOutput = half4(_Remap_AB38022_Out, _Remap_AB38022_Out, _Remap_AB38022_Out, 1.0); return surface; }
-				float _Add_F4B23BCA_Out;
-				Unity_Add_float(_Remap_AB38022_Out, _Add_F4B23BCA_B, _Add_F4B23BCA_Out);
-				if (Float_9031DB85 == 5) { surface.PreviewOutput = half4(_Add_F4B23BCA_Out, _Add_F4B23BCA_Out, _Add_F4B23BCA_Out, 1.0); return surface; }
-				float _Clamp_DBED94F0_Out;
-				Unity_Clamp_float(_Add_F4B23BCA_Out, _Clamp_DBED94F0_Min, _Clamp_DBED94F0_Max, _Clamp_DBED94F0_Out);
-				if (Float_9031DB85 == 6) { surface.PreviewOutput = half4(_Clamp_DBED94F0_Out, _Clamp_DBED94F0_Out, _Clamp_DBED94F0_Out, 1.0); return surface; }
-				float4 _Multiply_DD8DDE6B_Out;
-				Unity_Multiply_float(_Lerp_F60D4D8C_Out, (_Clamp_DBED94F0_Out.xxxx), _Multiply_DD8DDE6B_Out);
-				if (Float_9031DB85 == 7) { surface.PreviewOutput = half4(_Multiply_DD8DDE6B_Out.x, _Multiply_DD8DDE6B_Out.y, _Multiply_DD8DDE6B_Out.z, 1.0); return surface; }
+				float _Property_DC180A9C_Out = Float_7E56653D;
+				float _Sine_90C1BD81_Out;
+				Unity_Sine_float(_Property_DC180A9C_Out, _Sine_90C1BD81_Out);
+				if (Float_800A9918 == 0) { surface.PreviewOutput = half4(_Sine_90C1BD81_Out, _Sine_90C1BD81_Out, _Sine_90C1BD81_Out, 1.0); return surface; }
+				float _Multiply_43137AB_Out;
+				Unity_Multiply_float(_Time.y, _Sine_90C1BD81_Out, _Multiply_43137AB_Out);
+				if (Float_800A9918 == 1) { surface.PreviewOutput = half4(_Multiply_43137AB_Out, _Multiply_43137AB_Out, _Multiply_43137AB_Out, 1.0); return surface; }
+				float _Sine_EFF6A6FE_Out;
+				Unity_Sine_float(_Multiply_43137AB_Out, _Sine_EFF6A6FE_Out);
+				if (Float_800A9918 == 2) { surface.PreviewOutput = half4(_Sine_EFF6A6FE_Out, _Sine_EFF6A6FE_Out, _Sine_EFF6A6FE_Out, 1.0); return surface; }
+				float _Remap_392641D4_Out;
+				Unity_Remap_float(_Sine_EFF6A6FE_Out, _Remap_392641D4_InMinMax, _Remap_392641D4_OutMinMax, _Remap_392641D4_Out);
+				if (Float_800A9918 == 3) { surface.PreviewOutput = half4(_Remap_392641D4_Out, _Remap_392641D4_Out, _Remap_392641D4_Out, 1.0); return surface; }
+				float _Remap_47B2AFA4_Out;
+				Unity_Remap_float(_Remap_47B2AFA4_In, _Remap_47B2AFA4_InMinMax, _Remap_47B2AFA4_OutMinMax, _Remap_47B2AFA4_Out);
+				if (Float_800A9918 == 4) { surface.PreviewOutput = half4(_Remap_47B2AFA4_Out, _Remap_47B2AFA4_Out, _Remap_47B2AFA4_Out, 1.0); return surface; }
+				float4 _Property_98614D15_Out = Color_F55EE251;
+				float4 _Multiply_7A79087_Out;
+				Unity_Multiply_float((_Remap_392641D4_Out.xxxx), _Property_98614D15_Out, _Multiply_7A79087_Out);
+				if (Float_800A9918 == 5) { surface.PreviewOutput = half4(_Multiply_7A79087_Out.x, _Multiply_7A79087_Out.y, _Multiply_7A79087_Out.z, 1.0); return surface; }
 				return surface;
 			}
 	ENDCG
