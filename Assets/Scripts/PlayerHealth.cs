@@ -11,7 +11,6 @@ public class PlayerHealth : MonoBehaviour {
     public float damageRate = 60;
     float number;
     Vector3 enemyVelocity;
-
     public Renderer BoombaRenderer;
 
     private void FixedUpdate() {
@@ -55,8 +54,9 @@ public class PlayerHealth : MonoBehaviour {
         if (collision.collider.gameObject.layer == 8) {
         health = 0;
         gameObject.SetActive(false);
-
-        }
+        CameraMovement.CameraShake();
+        
+    }
     }
 
 
