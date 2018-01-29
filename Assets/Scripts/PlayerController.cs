@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour {
 	public float MovementSpeed;
 	public float MaxSpeed;
     public float WeaponRange = 50f;
+    public GameObject catAnimator;
 
     public GameObject succ;
     public GameObject succThree;
@@ -73,6 +74,11 @@ public class PlayerController : MonoBehaviour {
             if (Input.GetButtonDown(_dashInputName))
 			{
                 succ.SetActive(true);
+                if (_healthScript.catPowerEnabled) {
+                    var cat = catAnimator.GetComponent<CatAnimator>();
+                    cat.CatAttack();
+                
+                }
             }
 
             if (Input.GetButton(_dashInputName))

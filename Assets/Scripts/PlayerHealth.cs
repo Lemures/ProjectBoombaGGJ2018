@@ -70,6 +70,7 @@ public class PlayerHealth : MonoBehaviour {
             StartCoroutine("Explode");
             health = 0;
             AudioController.Instance.PlayRoombaExplosionSounds();
+            catPowerEnabled = false;
             gameObject.SetActive(false);
             CameraMovement.CameraShake();
         

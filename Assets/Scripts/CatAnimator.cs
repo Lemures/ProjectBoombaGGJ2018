@@ -11,7 +11,7 @@ public class CatAnimator : MonoBehaviour {
         anim = GetComponent<Animator>();
 	}
 	
-    void CatAttack()
+    public void CatAttack()
     {
         anim.SetTrigger("Attack");
     }

@@ -837,7 +837,7 @@ Prefab:
     - target: {fileID: 114717379059495166, guid: e97a94b2d6ffc47729e92e4f50ee981a,
         type: 2}
       propertyPath: healthIncreaseRate
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 23452342908950588, guid: e97a94b2d6ffc47729e92e4f50ee981a,
         type: 2}
@@ -878,6 +878,11 @@ Prefab:
       propertyPath: succThree
       value: 
       objectReference: {fileID: 75344048}
+    - target: {fileID: 114321750505610528, guid: e97a94b2d6ffc47729e92e4f50ee981a,
+        type: 2}
+      propertyPath: catAnimator
+      value: 
+      objectReference: {fileID: 1845200575}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e97a94b2d6ffc47729e92e4f50ee981a, type: 2}
   m_IsPrefabParent: 0
@@ -1514,6 +1519,11 @@ Prefab:
       propertyPath: succThree
       value: 
       objectReference: {fileID: 1389571185}
+    - target: {fileID: 114321750505610528, guid: e97a94b2d6ffc47729e92e4f50ee981a,
+        type: 2}
+      propertyPath: catAnimator
+      value: 
+      objectReference: {fileID: 957992287}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e97a94b2d6ffc47729e92e4f50ee981a, type: 2}
   m_IsPrefabParent: 0
@@ -7061,7 +7071,7 @@ Prefab:
     - target: {fileID: 114717379059495166, guid: e97a94b2d6ffc47729e92e4f50ee981a,
         type: 2}
       propertyPath: health
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114321750505610528, guid: e97a94b2d6ffc47729e92e4f50ee981a,
         type: 2}
@@ -7073,6 +7083,11 @@ Prefab:
       propertyPath: succTwo
       value: 
       objectReference: {fileID: 499626693}
+    - target: {fileID: 114321750505610528, guid: e97a94b2d6ffc47729e92e4f50ee981a,
+        type: 2}
+      propertyPath: catAnimator
+      value: 
+      objectReference: {fileID: 243057426}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e97a94b2d6ffc47729e92e4f50ee981a, type: 2}
   m_IsPrefabParent: 0
@@ -7315,6 +7330,11 @@ Prefab:
       propertyPath: succ
       value: 
       objectReference: {fileID: 1253630823}
+    - target: {fileID: 114321750505610528, guid: e97a94b2d6ffc47729e92e4f50ee981a,
+        type: 2}
+      propertyPath: catAnimator
+      value: 
+      objectReference: {fileID: 1197212876}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e97a94b2d6ffc47729e92e4f50ee981a, type: 2}
   m_IsPrefabParent: 0
