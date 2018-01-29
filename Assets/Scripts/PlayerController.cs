@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     private bool _isChargingLaunch;
     private PlayerHealth _healthScript;
 
-
     public float MovementSpeed;
     public float MaxSpeed;
     public float WeaponRange = 50f;
@@ -25,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject succ;
     public GameObject succThree;
-    private ParticleSystem vacuumParticle;
+    private ParticleSystem _vacuumParticle;
 
     public int PlayerId;
     private string _horizontalInputName;
@@ -39,11 +38,7 @@ public class PlayerController : MonoBehaviour
         _horizontalInputName = "HorizontalJ" + PlayerId.ToString();
         _verticalInputName = "VerticalJ" + PlayerId.ToString();
         _dashInputName = "Dash" + PlayerId.ToString();
-    }
-
-    protected void Start()
-    {
-        vacuumParticle = succ.GetComponent<ParticleSystem>();
+        _vacuumParticle = succ.GetComponent<ParticleSystem>();
     }
 
     protected void Update()
@@ -75,13 +70,17 @@ public class PlayerController : MonoBehaviour
                 {
                     var cat = catAnimator.GetComponent<CatAnimator>();
                     cat.CatAttack();
-
                 }
             }
 
             if (Input.GetButton(_dashInputName))
             {
-                _isChargingLaunch = true;
+                if (!_isChargingLaunch)
+                {
+                    succ.SetActive(true);
+                    _isChargingLaunch = true;
+                }
+
                 if (_launchForce < _maxLaunchForce)
                     _launchForce += 6.0f * Time.deltaTime;
             }
@@ -89,15 +88,11 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonUp(_dashInputName))
             {
                 _isLaunching = true;
+
                 if (_healthScript.catPowerEnabled)
-                {
-                    succ.SetActive(false);
                     succThree.SetActive(true);
-                }
-                else
-                {
-                    succ.SetActive(false);
-                }
+
+                succ.SetActive(false);
             }
         }
     }
