@@ -21,6 +21,10 @@ public class PlayerController : MonoBehaviour {
 	public float MaxSpeed;
     public float WeaponRange = 50f;
 
+    public GameObject succ;
+    public GameObject succThree;
+    private ParticleSystem vacuumParticle;
+
     public int PlayerId;
     private string _horizontalInputName;
     private string _verticalInputName;
@@ -39,8 +43,8 @@ public class PlayerController : MonoBehaviour {
 
     protected void Start () 
 	{
-		
-	}
+        vacuumParticle = succ.GetComponent<ParticleSystem>();
+    }
 	
 	protected void Update () 
 	{
@@ -66,7 +70,12 @@ public class PlayerController : MonoBehaviour {
 		} 
 		else 
 		{
-			if(Input.GetButton(_dashInputName))
+            if (Input.GetButtonDown(_dashInputName))
+			{
+                succ.SetActive(true);
+            }
+
+            if (Input.GetButton(_dashInputName))
 			{
 				_isChargingLaunch = true;
 				if(_launchForce < _maxLaunchForce)
@@ -76,6 +85,12 @@ public class PlayerController : MonoBehaviour {
 			if(Input.GetButtonUp(_dashInputName))
 			{
 				_isLaunching = true;
+                if (_healthScript.catPowerEnabled) {
+                    succ.SetActive(false);
+                    succThree.SetActive(true);
+                } else {
+                    succ.SetActive(false);
+                }
 			}
 		}
 	}
@@ -122,7 +137,7 @@ public class PlayerController : MonoBehaviour {
         {
             if (hit.rigidbody != null) 
             {
-                hit.rigidbody.AddForce(-hit.normal * _launchForce * 6000);
+                hit.rigidbody.AddForce(-hit.normal * _launchForce * 3000);
             }
         }
 	}

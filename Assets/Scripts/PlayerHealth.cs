@@ -16,6 +16,7 @@ public class PlayerHealth : MonoBehaviour {
     public GameObject cat;
     public float catScore = 0;
     public GameObject explosionPart;
+    private Vector3 explodeLocation;
 
    
     private void Update() {
@@ -65,6 +66,8 @@ public class PlayerHealth : MonoBehaviour {
             AudioController.Instance.PlayRoombaHitSounds();
         }
         if (collision.collider.gameObject.layer == 8) {
+            explodeLocation = gameObject.transform.position;
+            StartCoroutine("Explode");
             health = 0;
             AudioController.Instance.PlayRoombaExplosionSounds();
             gameObject.SetActive(false);
@@ -72,7 +75,9 @@ public class PlayerHealth : MonoBehaviour {
         
     }
     }
+        IEnumerator Explode(){
+            Instantiate(explosionPart, explodeLocation, Quaternion.identity);
+            yield break;
+    }
+    }
 
-
-
-}
