@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CatAnimator : MonoBehaviour {
-
+public class CatAnimator : MonoBehaviour
+{
     Animator anim;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    protected void Awake()
+    {
         anim = GetComponent<Animator>();
-	}
-	
+    }
+
     public void CatAttack()
     {
         anim.SetTrigger("Attack");
@@ -26,12 +27,4 @@ public class CatAnimator : MonoBehaviour {
     {
         anim.SetTrigger("Leave");
     }
-
-    /*private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            CatAttack();
-        }
-    }*/
 }

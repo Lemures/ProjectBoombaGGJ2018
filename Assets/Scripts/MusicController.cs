@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MusicController : MonoBehaviour {
-
+public class MusicController : MonoBehaviour
+{
     public List<AudioClip> songs;
-
 }

@@ -2,21 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CatForward : MonoBehaviour {
+public class CatForward : MonoBehaviour
+{
+    protected void Update()
+    {
+        StartCoroutine("SelfInvis");
+    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-            StartCoroutine("SelfInvis");
-        }
-
-    IEnumerator SelfInvis() {
+    private IEnumerator SelfInvis()
+    {
         yield return new WaitForSeconds(.5f);
         gameObject.SetActive(false);
-       
     }
 }

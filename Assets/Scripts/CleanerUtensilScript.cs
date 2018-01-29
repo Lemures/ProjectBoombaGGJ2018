@@ -2,17 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CleanerUtensilScript : MonoBehaviour {
+public class CleanerUtensilScript : MonoBehaviour
+{
 
-	public float SpinMultiplier;
+    public float SpinMultiplier;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		transform.Rotate(Vector3.up * Time.deltaTime * SpinMultiplier*2);
-	}
+    protected void Update()
+    {
+        transform.Rotate(Vector3.up * Time.deltaTime * SpinMultiplier * 2);
+    }
 }
