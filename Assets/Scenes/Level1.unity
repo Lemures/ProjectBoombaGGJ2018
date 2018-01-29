@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 12505076}
   m_Layer: 11
   m_Name: PhysicsBox (8)
-  m_TagString: Untagged
+  m_TagString: CatPushable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1548,7 +1548,7 @@ GameObject:
   - component: {fileID: 398066582}
   m_Layer: 11
   m_Name: PhysicsBox (2)
-  m_TagString: Untagged
+  m_TagString: CatPushable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2559,6 +2559,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1314836907630234, guid: 459a13c68e886394883ac8ec7a8380c4, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272759769844980, guid: 459a13c68e886394883ac8ec7a8380c4, type: 2}
+      propertyPath: m_TagString
+      value: CatPushable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 459a13c68e886394883ac8ec7a8380c4, type: 2}
   m_IsPrefabParent: 0
@@ -2574,7 +2582,7 @@ GameObject:
   - component: {fileID: 640547803}
   m_Layer: 11
   m_Name: PhysicsBox (1)
-  m_TagString: Untagged
+  m_TagString: CatPushable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2632,7 +2640,7 @@ GameObject:
   - component: {fileID: 640663160}
   m_Layer: 11
   m_Name: PhysicsBox (5)
-  m_TagString: Untagged
+  m_TagString: CatPushable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2757,7 +2765,7 @@ GameObject:
   - component: {fileID: 661480845}
   m_Layer: 11
   m_Name: PhysicsBox (4)
-  m_TagString: Untagged
+  m_TagString: CatPushable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3034,6 +3042,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1139229244018688, guid: d0151e66eb3dc78479ec4c6d4d3832cd, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1566293595972514, guid: d0151e66eb3dc78479ec4c6d4d3832cd, type: 2}
+      propertyPath: m_TagString
+      value: CatPushable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0151e66eb3dc78479ec4c6d4d3832cd, type: 2}
   m_IsPrefabParent: 0
@@ -3131,7 +3147,7 @@ GameObject:
   - component: {fileID: 832969907}
   m_Layer: 11
   m_Name: PhysicsBox (7)
-  m_TagString: Untagged
+  m_TagString: CatPushable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4265,7 +4281,7 @@ GameObject:
   - component: {fileID: 1133885776}
   m_Layer: 11
   m_Name: PhysicsBox (9)
-  m_TagString: Untagged
+  m_TagString: CatPushable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4323,7 +4339,7 @@ GameObject:
   - component: {fileID: 1159042787}
   m_Layer: 11
   m_Name: PhysicsBox (6)
-  m_TagString: Untagged
+  m_TagString: CatPushable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4613,6 +4629,14 @@ Prefab:
     - target: {fileID: 4754512995183652, guid: feebcdb2f86c7ff4481bc4e03126693d, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759339019607852, guid: feebcdb2f86c7ff4481bc4e03126693d, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1782172398518026, guid: feebcdb2f86c7ff4481bc4e03126693d, type: 2}
+      propertyPath: m_TagString
+      value: CatPushable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: feebcdb2f86c7ff4481bc4e03126693d, type: 2}
@@ -4994,7 +5018,7 @@ GameObject:
   - component: {fileID: 1404560524}
   m_Layer: 11
   m_Name: PhysicsBox (3)
-  m_TagString: Untagged
+  m_TagString: CatPushable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5078,6 +5102,14 @@ Prefab:
     - target: {fileID: 4231570811354574, guid: 75a21238f77e44b4db94134625984530, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1845401255930774, guid: 75a21238f77e44b4db94134625984530, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253167606994956, guid: 75a21238f77e44b4db94134625984530, type: 2}
+      propertyPath: m_TagString
+      value: CatPushable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 75a21238f77e44b4db94134625984530, type: 2}
@@ -6886,7 +6918,7 @@ GameObject:
   - component: {fileID: 1782632190}
   m_Layer: 11
   m_Name: PhysicsBox
-  m_TagString: Untagged
+  m_TagString: CatPushable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7932,7 +7964,7 @@ GameObject:
   - component: {fileID: 1988853087}
   m_Layer: 11
   m_Name: PhysicsBox
-  m_TagString: Untagged
+  m_TagString: CatPushable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

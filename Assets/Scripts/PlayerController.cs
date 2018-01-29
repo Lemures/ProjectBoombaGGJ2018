@@ -126,14 +126,22 @@ public class PlayerController : MonoBehaviour
 
     private void CatAttack()
     {
-        RaycastHit hit;
+        RaycastHit[] hits;
+        LayerMask noBumpers = new LayerMask();
+        noBumpers = Physics.AllLayers ^ (1 << 9);
         Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
-        Debug.DrawRay(transform.position, forward, Color.green);
-        if (Physics.SphereCast(transform.position, 1, transform.TransformDirection(Vector3.forward), out hit, WeaponRange))
-        {
-            if (hit.rigidbody != null)
+        Debug.DrawRay(transform.position, transform.forward * WeaponRange, Color.green, 10.0f);
+        hits = Physics.SphereCastAll(transform.position, 1, transform.forward, WeaponRange, noBumpers);
+        for(int i = 0; i < hits.Length; i++) {
+            var hit = hits[i];
+            if (hit.rigidbody != null && 
+                hit.transform.gameObject.tag == "CatPushable" &&
+                hit.transform.name != transform.name)
             {
-                hit.rigidbody.AddForce(-hit.normal * _launchForce * 3000);
+                if (hit.transform.name.Contains("Box"))
+                    hit.rigidbody.AddForce(-hit.normal * _launchForce * 100);
+                else 
+                    hit.rigidbody.AddForce(-hit.normal * _launchForce * 4000);
             }
         }
     }
