@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rigidBody;
     private float _launchForce = 10.0f;
     private float _maxLaunchForce = 25.0f;
-    private float _launchCooldown = 2.0f;
+    private float _launchCooldown = 1.0f;
     private float _launchCooldownTimer = 0.0f;
     private bool _isLaunchOnCooldown;
     private bool _isLaunching;

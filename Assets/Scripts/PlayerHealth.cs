@@ -10,13 +10,13 @@ public class PlayerHealth : MonoBehaviour
     public LayerMask canDamage;
     public float playerDamage = 10;
     public float damageRate = 60;
-    float number;
+    private float _timeTilNextDamage;
     Vector3 enemyVelocity;
     public Renderer BoombaRenderer;
     public bool catPowerEnabled = false;
     public GameObject cat;
     public float catScore = 0;
-    public GameObject explosionPart;
+    public ParticleSystem ExplosionPart;
     public GameObject BoombaMeshObject;
     private Vector3 explodeLocation;
     private Rigidbody _rigidBody;
@@ -24,10 +24,12 @@ public class PlayerHealth : MonoBehaviour
     private float spawnSize = 4.0f;
     private Vector3 lastPos = new Vector3(50, 50, 50);
     private bool _isSpawning;
+    private List<ParticleSystem> _explosionSubEmitters;
 
     protected void Awake()
     {
         _rigidBody = GetComponent<Rigidbody>();
+        _explosionSubEmitters = new List<ParticleSystem>(ExplosionPart.gameObject.GetComponentsInChildren<ParticleSystem>());
     }
 
     private void Update()
@@ -72,11 +74,11 @@ public class PlayerHealth : MonoBehaviour
         {
             if (contact.thisCollider.gameObject.layer == 0 && (contact.otherCollider.gameObject.layer == 9 || contact.otherCollider.gameObject.layer == 0))
             {
-                number++;
-                if (number >= damageRate)
+                _timeTilNextDamage++;
+                if (_timeTilNextDamage >= damageRate)
                 {
                     health = health - playerDamage;
-                    number = 0;
+                    _timeTilNextDamage = 0;
                 }
             }
         }
@@ -109,10 +111,22 @@ public class PlayerHealth : MonoBehaviour
         StartCoroutine("Spawn", gameObject);
     }
 
+    // Don't know how to get these stupid subemitters to play automatically
+    private void PlayParticle(ParticleSystem ps)
+    {
+        ps.Stop();
+        ps.Clear();
+        ps.Play();
+    }
+
     private IEnumerator Explode()
     {
-        Instantiate(explosionPart, explodeLocation, Quaternion.identity);
-        yield break;
+        //Instantiate(ExplosionPart, explodeLocation, Quaternion.identity);
+        PlayParticle(ExplosionPart);
+        foreach(var sub in _explosionSubEmitters)
+            PlayParticle(sub);
+
+        yield return null;
     }
 
     private IEnumerator Spawn(GameObject player)
