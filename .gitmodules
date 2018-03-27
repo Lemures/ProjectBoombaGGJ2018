@@ -1,0 +1,3 @@
+[submodule "Assets/Art/kitchen"]
+	path = Assets/Art/kitchen
+	url = https://bitbucket.org/boombacat/kitchen.git
