@@ -3796,12 +3796,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTime: 1
-  players:
-  - {fileID: 1064639249}
-  - {fileID: 335627212}
-  - {fileID: 469877906}
-  - {fileID: 1731176527}
   spawnSize: 4
+  players:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1897117536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3818,6 +3818,14 @@ MonoBehaviour:
   - {fileID: 335627212}
   - {fileID: 469877906}
   - {fileID: 1731176527}
+  GameSceneHolder: {fileID: 0}
+  EndScreen: {fileID: 0}
+  playerScore: []
+  GameTime: 100
+  PlayerOneEnd: {fileID: 0}
+  PlayerTwoEnd: {fileID: 0}
+  PlayerThreeEnd: {fileID: 0}
+  PlayerFourEnd: {fileID: 0}
 --- !u!4 &1897117537
 Transform:
   m_ObjectHideFlags: 0
